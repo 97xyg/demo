@@ -1,0 +1,9 @@
+#!/usr/bin/python3
+#-*-coding:gbk-*-
+"""
+@project£ºpython_file
+@author£ºLorus or Geek
+@file£º__init__.py.py
+@software£ºPyCharm
+@time£º2019/08/15 11:46:01
+"""
