@@ -1,55 +1,55 @@
 #!/usr/bin/python3
 # -*-coding:gbk-*-
-# @project£ºpython_file
-# @author£º×ÓÄ¾ØÆÑÔ
-# @file£ºmain.py
-# @software£ºPyCharm
-# @time£º2019/08/15 11:56:57
+# @projectï¼špython_file
+# @authorï¼šå­æœ¨ä»„è¨€
+# @fileï¼šmain.py
+# @softwareï¼šPyCharm
+# @timeï¼š2019/08/15 11:56:57
 
 from selenium import webdriver
 from study_hard.POM.testcase.ExecutionCases import Case
 
 
 class Wnss:
-    # ÕâÊÇÖ÷º¯Êı£¬³ÌĞòµÄÈë¿Ú
+    # è¿™æ˜¯ä¸»å‡½æ•°ï¼Œç¨‹åºçš„å…¥å£
     def __init__(self):
         self.case = Case()
 
     @classmethod
     def driver(cls):
-        # Àà·½·¨Ö»ÒªÊµÀı»¯Ò»´Î¾Í¿ÉÒÔÓÃÁË
+        # ç±»æ–¹æ³•åªè¦å®ä¾‹åŒ–ä¸€æ¬¡å°±å¯ä»¥ç”¨äº†
         # cls.dr = webdriver.Chrome()
         cls.dr = webdriver.Firefox()
-        cls.dr.get('http://localhost:8080/woniusales/')
+        cls.dr.get('http://localhost:8080/wnss/')
         cls.dr.implicitly_wait(3)
         return cls.dr
 
     def Login(self):
-        # ÕâÊÇµ÷ÓÃµÇÂ¼²âÊÔÓÃÀıµÄÈë¿Ú
-        dr = self.driver()  # µ÷ÓÃÁËdriverÕâ¸öÀà·½·¨£¬ºóÃæ¾Í¿ÉÒÔÖ±½ÓÓÃÀàÃû.xxÖ±½Óµ÷ÓÃËûÀïÃæµÄdrÇı¶¯ÁË£¬ÈçWoniusales.dr »òÕßself.dr
+        # è¿™æ˜¯è°ƒç”¨ç™»å½•æµ‹è¯•ç”¨ä¾‹çš„å…¥å£
+        dr = self.driver()  # è°ƒç”¨äº†driverè¿™ä¸ªç±»æ–¹æ³•ï¼Œåé¢å°±å¯ä»¥ç›´æ¥ç”¨ç±»å.xxç›´æ¥è°ƒç”¨ä»–é‡Œé¢çš„dré©±åŠ¨äº†ï¼Œå¦‚Wnsss.dr æˆ–è€…self.dr
         resul = self.case.case_login(dr)
-        if resul == 'µÇÂ¼³É¹¦':
-            print('ÓÃ»§ĞÅÏ¢ÕıÈ·£¬µÇÂ¼³É¹¦')
-        elif resul == 'µÇÂ¼Ê§°Ü':
-            print('ÓÃ»§ĞÅÏ¢´íÎó£¬µÇÂ¼Ê§°Ü')
+        if resul == 'ç™»å½•æˆåŠŸ':
+            print('ç”¨æˆ·ä¿¡æ¯æ­£ç¡®ï¼Œç™»å½•æˆåŠŸ')
+        elif resul == 'ç™»å½•å¤±è´¥':
+            print('ç”¨æˆ·ä¿¡æ¯é”™è¯¯ï¼Œç™»å½•å¤±è´¥')
 
     def Sale(self):
-        # ÕâÊÇÏúÊÛ³ö¿â
+        # è¿™æ˜¯é”€å”®å‡ºåº“
         dr = self.dr
         resul = self.case.case_Sale(dr)
-        if resul == '½»Ò×³É¹¦':
-            print('ĞÅÏ¢ÕıÈ·£¬½»Ò×³É¹¦')
+        if resul == 'äº¤æ˜“æˆåŠŸ':
+            print('ä¿¡æ¯æ­£ç¡®ï¼Œäº¤æ˜“æˆåŠŸ')
         else:
-            print('ĞÅÏ¢´íÎó£¬½»Ò×Ê§°Ü')
+            print('ä¿¡æ¯é”™è¯¯ï¼Œäº¤æ˜“å¤±è´¥')
 
     def Cancellation(self):
-        # ÕâÊÇ×¢Ïú
+        # è¿™æ˜¯æ³¨é”€
         dr = self.dr
         resul = self.case.case_Cancellation(dr)
-        if resul == '×¢Ïú³É¹¦':
-            print('×¢Ïú³É¹¦')
-        elif resul == '×¢ÏúÊ§°Ü':
-            print('×¢ÏúÊ§°Ü')
+        if resul == 'æ³¨é”€æˆåŠŸ':
+            print('æ³¨é”€æˆåŠŸ')
+        elif resul == 'æ³¨é”€å¤±è´¥':
+            print('æ³¨é”€å¤±è´¥')
 
     def __del__(self):
         self.dr.close()
